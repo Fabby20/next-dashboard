@@ -1,0 +1,64 @@
+.span-2 {
+  grid-row: span 2;
+}
+.column {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.background {
+  margin-left: 190px;
+  padding-right: 20px;
+  padding-left: 20px;
+
+  width: 200%;
+  height: 100vh;
+}
+.column__background {
+  background-color: blue;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto; /* Three rows with automatic height */
+  gap: 10px; /* Gap between grid items */
+}
+
+.grid-item-1 {
+}
+
+.grid-item-2 {
+  /*   width: 80%; */
+}
+
+.grid-item-3 {
+  /*   width: 80%; */
+}
+
+/* Span the third column to cover two rows in the first row */
+.grid-item-4 {
+  grid-column: 4;
+  grid-row: span 2; /* Spanning two rows */
+}
+
+/* Define the second row to have equal-sized columns */
+.grid-item-5 {
+  grid-column: span 2; /* Each column spans one column */
+}
+
+.grid-item-6 {
+  grid-column: span 1; /* Each column spans one column */
+}
+
+/* Define the third row to have two columns */
+.grid-item-7 {
+  grid-column: span 2; /* First column */
+}
+
+.grid-item-8 {
+  grid-column: span 1; /* Second column spans two columns */
+}
+
+/* Styling for demonstration */
+.grid-item {
+  padding: 10px;
+}

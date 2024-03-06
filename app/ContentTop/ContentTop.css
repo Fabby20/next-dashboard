@@ -1,0 +1,18 @@
+.navcontainer {
+  width: 100%;
+}
+.nav__image {
+  width: 60px;
+  height: auto;
+  border-radius: 50px;
+}
+.nav__imageText {
+  align-items: center;
+}
+.nav-search {
+  background-color: #283539;
+  padding-right: 100px;
+}
+.dashboard {
+  color: rgb(53, 23, 183);
+}

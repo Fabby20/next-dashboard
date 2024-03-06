@@ -1,0 +1,38 @@
+/* NAVBAR */
+.sidenav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 16%;
+  background-color: white;
+  z-index: 2;
+}
+.polestar {
+  color: #7a7ab6;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav__home {
+  border: none;
+  outline: none;
+  padding: 0 5px;
+  background-color: rgb(53, 23, 183);
+  color: white !important;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+}
+.nav__home .active {
+  background-color: #007bff; /* Adjust this to the color you want for the active state */
+  color: white; /* Text color for the active state */
+  width: 100%;
+}
+.nav {
+  color: #7a7ab6;
+  font-weight: bolder;
+}
+.dashboard {
+  color: rgb(53, 23, 183);
+}

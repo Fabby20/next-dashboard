@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Bakbak+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+.main-content {
+  width: 100%;
+  background-color: red;
+  border: yellow;
+  padding: 100rem;
+}
+
+@media screen and (max-width: 1400px) {
+  .main-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .main-content {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}

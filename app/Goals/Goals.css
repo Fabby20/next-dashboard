@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Bakbak+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+.expense {
+  background-color: white;
+
+  width: auto;
+}
+.goal-image {
+  width: 14rem;
+  height: 10rem;
+}
+.balances {
+  font-size: 18px;
+  font-weight: bolder !important;
+  color: rgb(53, 23, 183);
+}
+.per {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgb(90, 68, 183);
+}
+.amount {
+  font-size: 12px;
+  font-weight: bolder;
+  color: rgb(90, 68, 183);
+}
+.sum {
+  color: #372b76;
+}
