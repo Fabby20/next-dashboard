@@ -9,14 +9,19 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { PrismaClient } from '@prisma/client';
 import prisma from '@/lib/prisma';
-import { fetchInvestments } from '../store/investment';
+import { createInvestment, fetchInvestments } from '../store/investment';
 //const prisma = new PrismaClient();
 
 interface IFormInput {
   name: string;
   month: string;
   amount: number;
-  date: string;
+}
+
+const defaultValues: IFormInput = {
+  name: '',
+  month: '',
+  amount: 0
 }
 
 export default function Page() {
@@ -24,19 +29,35 @@ export default function Page() {
     name:yup.string().required("Name field is required!"),
     month:yup.string().required(),
     amount: yup.number().positive().integer().min(10).required(),
-    date: yup.number().positive().integer().min(1).required()
+
+    // date: yup.number().positive().integer().min(1).required()
     })
    const [data, setData] = useState("") 
   const [show, setShow] = useState(false);
-  const { register, handleSubmit, formState:{errors} } = useForm({
-    resolver: yupResolver(schema),
-  });
+
+  const {
+    reset,
+    register,
+    control,
+    setValue,
+    handleSubmit,
+    watch,
+    formState: { errors, isSubmitting }
+  } = useForm({
+    defaultValues,
+    mode: 'onChange',
+    resolver: yupResolver(schema)
+  })
+
   
-  // const onSubmit: SubmitHandler<IFormInput> = (data) => {
-  //   console.log(data, "hello");
-  // };
   const onSubmit = (data: any) => {
-    console.log(data, "date")
+
+    createInvestment(data).then((res)=>{
+      if(res?.data.success){
+        reset()
+      }
+    })
+
   }
   
 
@@ -63,10 +84,15 @@ export default function Page() {
    <p className='fs-6 text-danger'>{errors.name?.message}</p>
                 </div>
                 <div className="mb-3">
+                  <label htmlFor="exampleInputName" className="form-label">Month</label>
+                  <input {...register("month", { required: true, maxLength: 20 })} type="text" className="form-control" id="exampleInputMonth" aria-describedby="emailHelp"/>
+   <p className='fs-6 text-danger'>{errors.name?.message}</p>
+                </div>
+                {/* <div className="mb-3">
                   <label htmlFor="exampleInputDate1" className="form-label">Date</label>
                   <input {...register("date")} type="date" className="form-control" id="exampleDate1"/>
                   <p className='fs-6 text-danger'>{errors.date?.message}</p>
-                </div>
+                </div> */}
                 <div className="mb-3">
                   <label htmlFor="exampleInputAmount" className="form-label">Amount</label>
                   <input {...register("amount", { min: 18, max: 99 })} type="number" className="form-control" id="exampleInputAmount"/>
